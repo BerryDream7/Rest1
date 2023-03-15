@@ -6,7 +6,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+   
+  
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -15,6 +16,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
+        install: java -jar ./artifacts/app-mbank.jar &
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew test
